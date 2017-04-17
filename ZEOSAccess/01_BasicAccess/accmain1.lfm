@@ -1,0 +1,102 @@
+object Form1: TForm1
+  Left = 0
+  Height = 529
+  Top = 0
+  Width = 1184
+  ActiveControl = DBGrid1
+  Caption = 'Form1'
+  ClientHeight = 529
+  ClientWidth = 1184
+  DesignTimePPI = 120
+  Visible = False
+  object DBGrid1: TDBGrid
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 361
+    Top = 168
+    Width = 1184
+    Anchors = [akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 0
+  end
+  object DBNavigator1: TDBNavigator
+    AnchorSideLeft.Control = Owner
+    AnchorSideBottom.Control = DBGrid1
+    Left = 0
+    Height = 43
+    Top = 120
+    Width = 397
+    Anchors = [akLeft, akBottom]
+    BevelOuter = bvNone
+    BorderSpacing.Bottom = 5
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 43
+    ClientWidth = 397
+    DataSource = DataSource1
+    Options = []
+    TabOrder = 1
+  end
+  object DBImage1: TDBImage
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = DBGrid1
+    Left = 920
+    Height = 168
+    Top = 0
+    Width = 264
+    Anchors = [akTop, akRight, akBottom]
+    DataField = 'thumbnail'
+    DataSource = DataSource1
+  end
+  object buConnect: TButton
+    Left = 8
+    Height = 25
+    Top = 80
+    Width = 75
+    Caption = 'Connect'
+    OnClick = buConnectClick
+    TabOrder = 2
+  end
+  object buDisconnect: TButton
+    Left = 112
+    Height = 25
+    Top = 80
+    Width = 75
+    Caption = 'Disconnect'
+    OnClick = buDisconnectClick
+    TabOrder = 3
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    Connected = True
+    Port = 0
+    Database = 'SchnelltestB8'
+    Protocol = 'ado'
+    Left = 32
+    Top = 8
+  end
+  object ZTable1: TZTable
+    Connection = ZConnection1
+    Active = True
+    TableName = 'Thumbnail'
+    Left = 128
+    Top = 8
+  end
+  object DataSource1: TDataSource
+    DataSet = ZTable1
+    Left = 208
+    Top = 8
+  end
+end
