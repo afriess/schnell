@@ -1,0 +1,188 @@
+object Form1: TForm1
+  Left = 0
+  Height = 375
+  Top = 0
+  Width = 695
+  Caption = 'Form1'
+  ClientHeight = 375
+  ClientWidth = 695
+  Visible = False
+  object DBGrid1: TDBGrid
+    Left = 8
+    Height = 228
+    Top = 88
+    Width = 336
+    Color = clWindow
+    Columns = <>
+    DataSource = DSTable
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    TabOrder = 0
+  end
+  object DBGrid2: TDBGrid
+    Left = 368
+    Height = 232
+    Top = 96
+    Width = 320
+    Color = clWindow
+    Columns = <>
+    DataSource = DSCol
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    TabOrder = 1
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 16
+    Height = 25
+    Top = 64
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = DSTable
+    Options = []
+    TabOrder = 2
+  end
+  object DBNavigator2: TDBNavigator
+    Left = 368
+    Height = 25
+    Top = 64
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = DSCol
+    Options = []
+    TabOrder = 3
+  end
+  object ZConnection: TZConnection
+    ControlsCodePage = cCP_UTF8
+    Properties.Strings = (
+      'codepage='
+      'controls_cp=CP_UTF8'
+      'AutoEncodeStrings=ON'
+    )
+    Connected = True
+    Port = 0
+    Database = 'SchnelltestB8'
+    User = 'admin'
+    Protocol = 'ado'
+    Left = 48
+    Top = 16
+  end
+  object ZMetaTable: TZSQLMetadata
+    Connection = ZConnection
+    MetadataType = mdTables
+    Active = True
+    Left = 144
+    Top = 16
+    object ZMetaTableTABLE_NAME: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'TABLE_NAME'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 150
+    end
+    object ZMetaTableTABLE_TYPE: TStringField
+      FieldKind = fkData
+      FieldName = 'TABLE_TYPE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1020
+    end
+  end
+  object DSTable: TDataSource
+    DataSet = ZMetaTable
+    Left = 216
+    Top = 16
+  end
+  object ZMetaCol: TZSQLMetadata
+    Connection = ZConnection
+    MetadataType = mdColumns
+    Active = True
+    MasterFields = 'TABLE_NAME'
+    MasterSource = DSTable
+    LinkedFields = 'TABLE_NAME'
+    Left = 296
+    Top = 16
+    object ZMetaColCOLUMN_NAME: TStringField
+      FieldKind = fkData
+      FieldName = 'COLUMN_NAME'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1020
+    end
+    object ZMetaColDATA_TYPE: TSmallintField
+      FieldKind = fkData
+      FieldName = 'DATA_TYPE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object ZMetaColCOLUMN_SIZE: TLongintField
+      FieldKind = fkData
+      FieldName = 'COLUMN_SIZE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object ZMetaColNULLABLE: TLongintField
+      FieldKind = fkData
+      FieldName = 'NULLABLE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object ZMetaColAUTO_INCREMENT: TBooleanField
+      FieldKind = fkData
+      FieldName = 'AUTO_INCREMENT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      DisplayValues = 'True;False'
+    end
+    object ZMetaColTABLE_NAME: TStringField
+      FieldKind = fkData
+      FieldName = 'TABLE_NAME'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1020
+    end
+  end
+  object DSCol: TDataSource
+    DataSet = ZMetaCol
+    Left = 394
+    Top = 16
+  end
+end
