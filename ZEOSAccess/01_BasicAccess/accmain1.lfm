@@ -7,7 +7,6 @@ object Form1: TForm1
   Caption = 'Form1'
   ClientHeight = 529
   ClientWidth = 1184
-  DesignTimePPI = 120
   Visible = False
   object DBGrid1: TDBGrid
     AnchorSideLeft.Control = Owner
