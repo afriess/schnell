@@ -12,6 +12,8 @@ uses
 //Einfach zConnection.Protocol = ado
 //zConnection.database = Provider=MICROSOFT.JET.OLEDB.4.0;Data Source=Kompletter_Pfad\MeineMdb.mdb
 
+//Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\data\Pascal\schnell\ZEOSAccess\DB\test_1.mdb;Persist Security Info=False
+
 type
 
   { TForm1 }

@@ -3,6 +3,7 @@ object Form1: TForm1
   Height = 375
   Top = 0
   Width = 695
+  ActiveControl = DBGrid1
   Caption = 'Form1'
   ClientHeight = 375
   ClientWidth = 695
@@ -77,15 +78,15 @@ object Form1: TForm1
     Database = 'SchnelltestB8'
     User = 'admin'
     Protocol = 'ado'
-    Left = 48
-    Top = 16
+    Left = 256
+    Top = 96
   end
   object ZMetaTable: TZSQLMetadata
     Connection = ZConnection
     MetadataType = mdTables
     Active = True
-    Left = 144
-    Top = 16
+    Left = 256
+    Top = 152
     object ZMetaTableTABLE_NAME: TStringField
       DisplayWidth = 150
       FieldKind = fkData
@@ -110,8 +111,8 @@ object Form1: TForm1
   end
   object DSTable: TDataSource
     DataSet = ZMetaTable
-    Left = 216
-    Top = 16
+    Left = 256
+    Top = 216
   end
   object ZMetaCol: TZSQLMetadata
     Connection = ZConnection
@@ -120,8 +121,8 @@ object Form1: TForm1
     MasterFields = 'TABLE_NAME'
     MasterSource = DSTable
     LinkedFields = 'TABLE_NAME'
-    Left = 296
-    Top = 16
+    Left = 400
+    Top = 168
     object ZMetaColCOLUMN_NAME: TStringField
       FieldKind = fkData
       FieldName = 'COLUMN_NAME'
@@ -182,7 +183,7 @@ object Form1: TForm1
   end
   object DSCol: TDataSource
     DataSet = ZMetaCol
-    Left = 394
-    Top = 16
+    Left = 400
+    Top = 224
   end
 end

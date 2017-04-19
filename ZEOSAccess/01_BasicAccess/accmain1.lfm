@@ -15,8 +15,8 @@ object Form1: TForm1
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 361
-    Top = 168
+    Height = 289
+    Top = 240
     Width = 1184
     Anchors = [akLeft, akRight, akBottom]
     Color = clWindow
@@ -29,7 +29,7 @@ object Form1: TForm1
     AnchorSideBottom.Control = DBGrid1
     Left = 0
     Height = 43
-    Top = 120
+    Top = 192
     Width = 397
     Anchors = [akLeft, akBottom]
     BevelOuter = bvNone
@@ -52,7 +52,7 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = DBGrid1
     Left = 920
-    Height = 168
+    Height = 240
     Top = 0
     Width = 264
     Anchors = [akTop, akRight, akBottom]
@@ -77,25 +77,76 @@ object Form1: TForm1
     OnClick = buDisconnectClick
     TabOrder = 3
   end
+  object edDatabase: TEdit
+    Left = 8
+    Height = 23
+    Top = 24
+    Width = 833
+    TabOrder = 4
+    Text = 'Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\data\Pascal\schnell\ZEOSAccess\DB\test_1.mdb;Persist Security Info=False'
+  end
+  object lblDatabase: TLabel
+    Left = 8
+    Height = 15
+    Top = 8
+    Width = 88
+    Caption = 'Database or DSN'
+    ParentColor = False
+  end
+  object DBMemo1: TDBMemo
+    Left = 208
+    Height = 90
+    Top = 80
+    Width = 318
+    DataField = 'annotation'
+    DataSource = DataSource1
+    TabOrder = 5
+  end
+  object DBMemo2: TDBMemo
+    Left = 544
+    Height = 88
+    Top = 80
+    Width = 328
+    DataField = 'xmp'
+    DataSource = DataSource1
+    OnChange = DBMemo2Change
+    TabOrder = 6
+  end
+  object Label1: TLabel
+    Left = 208
+    Height = 15
+    Top = 59
+    Width = 65
+    Caption = 'annontation'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 544
+    Height = 15
+    Top = 59
+    Width = 23
+    Caption = 'xmp'
+    ParentColor = False
+  end
   object ZConnection1: TZConnection
     ControlsCodePage = cCP_UTF8
     Connected = True
     Port = 0
-    Database = 'SchnelltestB8'
+    Database = 'Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\data\Pascal\schnell\ZEOSAccess\DB\test_1.mdb;Persist Security Info=False'
     Protocol = 'ado'
-    Left = 32
-    Top = 8
+    Left = 144
+    Top = 200
   end
   object ZTable1: TZTable
     Connection = ZConnection1
     Active = True
     TableName = 'Thumbnail'
-    Left = 128
-    Top = 8
+    Left = 192
+    Top = 200
   end
   object DataSource1: TDataSource
     DataSet = ZTable1
-    Left = 208
-    Top = 8
+    Left = 240
+    Top = 200
   end
 end
